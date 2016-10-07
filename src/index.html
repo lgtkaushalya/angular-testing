@@ -1,0 +1,14 @@
+<html>
+<head>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="service.js"></script>
+  <script src="controller.js"></script>
+</head>
+<body ng-app="myApp">
+  <h1>Hello to angular</h1>
+  <div ng-controller="myCtrl as vm">
+    FullName: {{vm.fullname}}
+  </div>
+</body>
+</html>
