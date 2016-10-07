@@ -51,7 +51,7 @@ describe('DataService', function() {
 
     it('get name', function(done) {
       this.timeout(5000);
-      DataService.getData().then(function(data) {
+      DataService.getDataWithDelay().then(function(data) {
         expect(data.name).to.equal('Thilanka Kaushalya Lanka Geeganage');
         done();
       });

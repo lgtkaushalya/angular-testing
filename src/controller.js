@@ -8,10 +8,12 @@ angular.module('myApp').controller('myCtrl', function($scope, DataService, $q) {
   fetchData();
 
   function fetchData() {
-    DataService.getData().then(function(data) {
+    DataService.getData('/employee', {}).then(function(data) {
       vm.fullname = data.name;
       $scope.$apply();
       deferredLoaded.resolve();
     });
+
+
   }
 });

@@ -1,11 +1,14 @@
-angular.module('myApp').service('DataService', function() {
+angular.module('myApp').service('DataService', function($http) {
   return {
-    getData: function() {
+    getDataWithDelay: function() {
       return new Promise(function(resolve, reject) {
         setTimeout(function() {
           resolve({name: "Thilanka Kaushalya Lanka Geeganage"});
         }, 2000);
       });
+    },
+    getData: function(url, parameters) {
+      return $http.get(url, parameters);
     }
   };
 });
