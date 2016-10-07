@@ -1,13 +1,14 @@
-angular.module('myApp').controller('myCtrl', function(dataService) {
+angular.module('myApp').controller('myCtrl', function($scope, DataService) {
   var vm = this;
 
-  vm.fullname = "Thilanka";
+  vm.fullname = "";
 
   fetchData();
 
   function fetchData() {
-    dataService.getData().then(function(data) {
-      console.log(data.name);
+    DataService.getData().then(function(data) {
+      vm.fullname = data.name;
+      $scope.$apply();
     });
   }
 });

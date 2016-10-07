@@ -1,7 +1,11 @@
-angular.module('myApp').service('dataService', function() {
+angular.module('myApp').service('DataService', function() {
   return {
     getData: function() {
-      return Promise.resolve({name: "Thilanka"});
+      return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+          resolve({name: "Thilanka Kaushalya Lanka Geeganage"});
+        }, 2000);
+      });
     }
   };
 });

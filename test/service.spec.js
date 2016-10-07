@@ -39,4 +39,22 @@ describe('Person', function() {
   });
 });
 
+describe('DataService', function() {
+  var DataService;
 
+  beforeEach(module('myApp'));
+  beforeEach(inject(function(_DataService_){
+    DataService = _DataService_;
+  }));
+
+  describe('getData', function() {
+
+    it('get name', function(done) {
+      this.timeout(5000);
+      DataService.getData().then(function(data) {
+        expect(data.name).to.equal('Thilanka Kaushalya Lanka Geeganage');
+        done();
+      });
+    });
+  });
+});
