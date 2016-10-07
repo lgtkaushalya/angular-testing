@@ -1,5 +1,7 @@
-angular.module('myApp').controller('myCtrl', function($scope, DataService) {
+angular.module('myApp').controller('myCtrl', function($scope, DataService, $q) {
   var vm = this;
+  var deferredLoaded = $q.defer();
+  vm.loaded = deferredLoaded.promise;
 
   vm.fullname = "";
 
@@ -9,6 +11,7 @@ angular.module('myApp').controller('myCtrl', function($scope, DataService) {
     DataService.getData().then(function(data) {
       vm.fullname = data.name;
       $scope.$apply();
+      deferredLoaded.resolve();
     });
   }
 });
